@@ -4,4 +4,6 @@ h1  {
     border: 2px black solid;
     color: whitesmoke;
     background-color:gray;
+    font-family: 'Shadows Into Light', cursive;
+    box-shadow: black 5px 5px 10px;
 }
