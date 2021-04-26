@@ -2,7 +2,7 @@
 
 // you have both users and tasks through a fetch request.
 // Now what you need to focus on is how to get a form to submit and have the users tasks be pulled up 
-// how to add check box for task to be completed 
+// how to add check box for task to be completed  [X]
 // how to edit/delete a task 
 
 const baseUrl = "http://localhost:3000/users";
