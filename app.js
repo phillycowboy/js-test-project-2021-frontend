@@ -6,11 +6,14 @@
 // refer to toy tale and their addToy form []
 // how to add check box for task to be completed  [X]
 // how to edit/delete a task []
+// create a home button that goes to the base url of app []
 
 const baseUrl = "http://localhost:3000/users";
 const taskUrl = "http://localhost:3000/tasks";
+const homeUrl = "http://localhost:3000/"
 const tasksBtn = document.querySelector("#tasks-btn");
 const usersBtn = document.querySelector("#users-btn");
+const homeBtn = document.querySelector("#home-btn");
 
 function getUsers() {
      return fetch(baseUrl)
@@ -56,9 +59,16 @@ function renderTasks(tasks) {
     }
 };
 
-tasksBtn.addEventListener('click', () => {
+tasksBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     getTasks();
-})
-usersBtn.addEventListener('click', () => {
+});
+usersBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     getUsers();
+});
+homeBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    window.location.reload();
+    // console.log(e)
 })
