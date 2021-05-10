@@ -7,7 +7,7 @@ h1  {
     font-family: 'Shadows Into Light', cursive;
     box-shadow: black 5px 5px 10px;
 }
-#header {
+/* #header {
     text-align: center;
 }
 #buttons {
@@ -15,6 +15,21 @@ h1  {
     display: flex;
     align-items: center;
 
+} */
+#welcome-message{
+    display: flex;
+    justify-content: center;
+    transition: ease-in;
+}
+#sign-in-message{
+    display: flex;
+    justify-content: center;
+    transition: ease-in;
+}
+#user-form{
+    display: flex;
+    justify-content: center;
+    transition: ease-in;
 }
 
 html{

@@ -14,16 +14,34 @@ const homeUrl = "http://localhost:3000/"
 
 const welcomeMessage = document.querySelector("#welcome-message");
 const signInMessage = document.querySelector("#sign-in-message");
+const userForm = document.querySelector("#user-form");
+const submitBtn = document.querySelector("#submit-form-button");
 welcomeMessage.style.visibility = "hidden";    
 signInMessage.style.visibility = "hidden";    
+userForm.style.visibility = "hidden";    
 
 setTimeout(() => {
     welcomeMessage.style.visibility = "visible";
     // document.body.append(welcomeMessage);
     setTimeout(() => {
         signInMessage.style.visibility = "visible";
+        setTimeout(() => {
+            userForm.style.visibility = "visible";
+        }, 1000);
     }, 1000);
 }, 2000);
+
+submitBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    // console.log(e.target.value)
+    signInUser();
+})
+
+function signInUser(){
+    
+}
+
+
 // const tasksBtn = document.querySelector("#tasks-btn");
 // const usersBtn = document.querySelector("#users-btn");
 // const homeBtn = document.querySelector("#home-btn");
