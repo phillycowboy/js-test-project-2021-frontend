@@ -11,6 +11,19 @@
 const baseUrl = "http://localhost:3000/users";
 const taskUrl = "http://localhost:3000/tasks";
 const homeUrl = "http://localhost:3000/"
+
+const welcomeMessage = document.querySelector("#welcome-message");
+const signInMessage = document.querySelector("#sign-in-message");
+welcomeMessage.style.visibility = "hidden";    
+signInMessage.style.visibility = "hidden";    
+
+setTimeout(() => {
+    welcomeMessage.style.visibility = "visible";
+    // document.body.append(welcomeMessage);
+    setTimeout(() => {
+        signInMessage.style.visibility = "visible";
+    }, 1000);
+}, 2000);
 // const tasksBtn = document.querySelector("#tasks-btn");
 // const usersBtn = document.querySelector("#users-btn");
 // const homeBtn = document.querySelector("#home-btn");
