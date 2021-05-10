@@ -16,9 +16,11 @@ const welcomeMessage = document.querySelector("#welcome-message");
 const signInMessage = document.querySelector("#sign-in-message");
 const userForm = document.querySelector("#user-form");
 const submitBtn = document.querySelector("#submit-form-button");
+const taskDiv = document.querySelector("#task-div");
 welcomeMessage.style.visibility = "hidden";    
 signInMessage.style.visibility = "hidden";    
 userForm.style.visibility = "hidden";    
+taskDiv.style.visibility = "hidden";    
 
 setTimeout(() => {
     welcomeMessage.style.visibility = "visible";
@@ -49,9 +51,16 @@ function signInUser(userName, userEmail){
     welcomeH2.innerText = `Welcome, ${username.value}!`;
     welcomeH2.style.textAlign = "center";
     welcomeH2.style.transition = "ease-in";
-    
+    appendTaskFrom();
+};
 
+function appendTaskForm() {
+    setTimeout(() => {
+        
+    }, 2000);
 }
+
+
 
 
 // const tasksBtn = document.querySelector("#tasks-btn");
