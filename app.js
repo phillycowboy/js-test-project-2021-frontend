@@ -57,8 +57,29 @@ function appendTaskForm() {
 
 taskForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log("Hello");
+    console.log(e.target[0].value);
+    // let task = e.target[0].value
+    // you should fetch on the submit buttion 
+    // then create the task list in the function createTaskList
+    // return fetch(taskUrl, {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify()
+    // })
+    // .then(response => response.json())
+    // .then(task => console.log(task));
+    // createTaskList();
 });
+
+// function createTaskList() {
+//     // return fetch(taskUrl, {
+//     //     method: "POST",
+//     //     body: task
+//     // })
+//     // .then()
+// }
 
 
 
