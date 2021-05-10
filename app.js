@@ -58,6 +58,9 @@ function appendTaskForm() {
 taskForm.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log(e.target[0].value);
+// you can grab the value from the form now you need to POST IT 
+// I would start watching the videos and following along since you are going to have to move code into OOP eventually. 
+
     // let task = e.target[0].value
     // you should fetch on the submit buttion 
     // then create the task list in the function createTaskList
