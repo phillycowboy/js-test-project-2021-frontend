@@ -74,6 +74,17 @@ taskForm.addEventListener("submit", (e) => {
     // .then(response => response.json())
     // .then(task => console.log(task));
     // createTaskList();
+   return fetch( taskUrl, {
+  method: "POST",
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
+
+  body: JSON.stringify()
+})
+.then( (response) => response.json())
+.then( (task) => console.log(task));
 });
 
 // function createTaskList() {
