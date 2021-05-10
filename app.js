@@ -31,14 +31,26 @@ setTimeout(() => {
     }, 1000);
 }, 2000);
 
-submitBtn.addEventListener("click", (e) => {
+userForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    // console.log(e.target.value)
+    let userName = e.target[0].value;
+    let userEmail = e.target[1].value;
     signInUser();
 })
 
-function signInUser(){
+function signInUser(userName, userEmail){
+    // needs to be a fetch request to get the user. 
+    let username = document.querySelector("#username");
+    welcomeMessage.style.visibility = "hidden";    
+    signInMessage.style.visibility = "hidden";    
+    userForm.style.visibility = "hidden"; 
+    let welcomeH2 = document.createElement("h2");
+    document.body.append(welcomeH2);
+    welcomeH2.innerText = `Welcome, ${username.value}!`;
+    welcomeH2.style.textAlign = "center";
+    welcomeH2.style.transition = "ease-in";
     
+
 }
 
 

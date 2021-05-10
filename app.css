@@ -31,6 +31,12 @@ h1  {
     justify-content: center;
     transition: ease-in;
 }
+/* input #username{
+    display: flex;
+    justify-content: center;
+    transition: ease-in;
+    text-align: center;
+} */
 
 html{
     scroll-behavior: smooth;
