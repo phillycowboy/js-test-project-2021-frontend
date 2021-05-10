@@ -1,13 +1,3 @@
-// alert('the pages are linked');
-
-// you have both users and tasks through a fetch request.[X]
-// Now what you need to focus on is how to get a form to submit and have the users tasks be pulled up[] 
-// have a user add a task, form should be hidden until button is clicked and hide it again on second click 
-// refer to toy tale and their addToy form []
-// how to add check box for task to be completed  [X]
-// how to edit/delete a task []
-// create a home button that goes to the base url of app []
-
 const baseUrl = "http://localhost:3000/users";
 const taskUrl = "http://localhost:3000/tasks";
 const homeUrl = "http://localhost:3000/"
@@ -17,6 +7,8 @@ const signInMessage = document.querySelector("#sign-in-message");
 const userForm = document.querySelector("#user-form");
 const submitBtn = document.querySelector("#submit-form-button");
 const taskDiv = document.querySelector("#task-div");
+const taskH2 = document.querySelector("#task-h2");
+const taskForm = document.querySelector("#task-form");
 welcomeMessage.style.visibility = "hidden";    
 signInMessage.style.visibility = "hidden";    
 userForm.style.visibility = "hidden";    
@@ -40,7 +32,7 @@ userForm.addEventListener("submit", (e) => {
     signInUser();
 })
 
-function signInUser(userName, userEmail){
+function signInUser(){
     // needs to be a fetch request to get the user. 
     let username = document.querySelector("#username");
     welcomeMessage.style.visibility = "hidden";    
@@ -51,14 +43,22 @@ function signInUser(userName, userEmail){
     welcomeH2.innerText = `Welcome, ${username.value}!`;
     welcomeH2.style.textAlign = "center";
     welcomeH2.style.transition = "ease-in";
-    appendTaskFrom();
+    setTimeout(() => {
+        welcomeH2.style.visibility = "hidden";
+    }, 2000);
+    appendTaskForm();
 };
 
 function appendTaskForm() {
     setTimeout(() => {
-        
+        taskDiv.style.visibility = "visible"
     }, 2000);
-}
+};
+
+taskForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log("Hello");
+});
 
 
 

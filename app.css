@@ -31,6 +31,10 @@ h1  {
     justify-content: center;
     transition: ease-in;
 }
+#task-div{
+    text-align: center;
+    transition: ease-in;
+}
 /* input #username{
     display: flex;
     justify-content: center;
