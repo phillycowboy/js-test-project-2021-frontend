@@ -9,6 +9,7 @@ const submitBtn = document.querySelector("#submit-form-button");
 const taskDiv = document.querySelector("#task-div");
 const taskH2 = document.querySelector("#task-h2");
 const taskForm = document.querySelector("#task-form");
+const userId = document.querySelector("#user_id");
 welcomeMessage.style.visibility = "hidden";    
 signInMessage.style.visibility = "hidden";    
 userForm.style.visibility = "hidden";    
@@ -37,7 +38,10 @@ userForm.addEventListener("submit", (e) => {
         body: JSON.stringify({user: {name: name, email: email}})
     })
     .then(response => response.json())
-    .then(user => signInUser(user))
+    .then(user => {
+        userId.value = user.id
+        signInUser(user)
+    })
     
 });
  
@@ -69,12 +73,13 @@ taskForm.addEventListener("submit", (e) => {
 // you can grab the value from the form now you need to POST IT 
 // I would start watching the videos and following along since you are going to have to move code into OOP eventually. 
     let activity = e.target[0].value
+    let userId = e.target[1].value
     fetch( taskUrl, {
         method: "POST",
         headers: {
             "Content-Type": 'application/json'
     },
-        body: JSON.stringify({task:{activity: activity}})
+        body: JSON.stringify({task:{activity: activity, user_id: userId}})
     })
     .then( (response) => response.json())
     .then( (task) => console.log(task));
