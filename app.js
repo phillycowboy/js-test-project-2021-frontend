@@ -40,9 +40,7 @@ userForm.addEventListener("submit", (e) => {
     .then(user => signInUser(user))
     
 });
-
-// now you need to have the user have a hidden id field on the form so that the tasks that are getting posted can be asscociated 
-// to a user 
+ 
 
 function signInUser(user){
     welcomeMessage.style.visibility = "hidden";    
