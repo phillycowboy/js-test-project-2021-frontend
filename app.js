@@ -65,16 +65,19 @@ function appendTaskForm() {
 
 taskForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log(e.target[0].value);
+    console.log(e);
 // you can grab the value from the form now you need to POST IT 
 // I would start watching the videos and following along since you are going to have to move code into OOP eventually. 
-
-return fetch( taskUrl, {
-  method: "POST",
-  body: JSON.stringify({task:{activity: e.target[0].value}})
-})
-.then( (response) => response.json())
-.then( (task) => console.log(task));
+    let activity = e.target[0].value
+    fetch( taskUrl, {
+        method: "POST",
+        headers: {
+            "Content-Type": 'application/json'
+    },
+        body: JSON.stringify({task:{activity: activity}})
+    })
+    .then( (response) => response.json())
+    .then( (task) => console.log(task));
 });
 
 
