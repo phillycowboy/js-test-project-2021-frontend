@@ -85,7 +85,9 @@ taskForm.addEventListener("submit", (e) => {
     .then( (task) => console.log(task));
 });
 
-// pass event listener a function to create a task with a edit delete and compleeted button to the dom 
+// POST REQUEST is successful, now take the object and pass it in the function and append to your DOM with an edit and delete button 
+// then --> PATCH request for edit button 
+// then --> DELETE request for delete button
 
 
 
