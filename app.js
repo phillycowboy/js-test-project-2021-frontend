@@ -80,69 +80,9 @@ taskForm.addEventListener("submit", (e) => {
     .then( (task) => console.log(task));
 });
 
+// pass event listener a function to create a task with a edit delete and compleeted button to the dom 
 
 
 
 
 
-// const tasksBtn = document.querySelector("#tasks-btn");
-// const usersBtn = document.querySelector("#users-btn");
-// const homeBtn = document.querySelector("#home-btn");
-
-// function getUsers() {
-//      return fetch(baseUrl)
-//     .then(res => res.json())
-//     .then(data => renderUsers(data))
-// };
-// getUsers();
-
-// function renderUsers(data){
-//     // console.log(data);
-    
-//     for(let d of data){ 
-//         let div = document.createElement('div');
-//         document.body.append(div);
-//         let h1 = document.createElement('h1');
-//         h1.innerText = d.name;
-//         div.appendChild(h1);
-//         let h3 = document.createElement('h3');
-//         h3.innerText = d.tasks[0].activity;
-//         div.appendChild(h3);
-//         let input = document.createElement('input');
-//         input.type = "checkbox"
-//         h3.appendChild(input);
-        
-//     }
-// };
-
-// function getTasks() {
-//      return fetch(taskUrl)
-//     .then(res => res.json())
-//     .then(tasks => renderTasks(tasks))
-// };
-// getTasks();
-
-// function renderTasks(tasks) {
-//     for(let t of tasks){
-//         let div = document.createElement('div');
-//         document.body.append(div);
-//         let h1 = document.createElement('h1');
-//         h1.innerText = t.activity;
-//         div.appendChild(h1);
-//         console.log(t.user_id);
-//     }
-// };
-
-// tasksBtn.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     getTasks();
-// });
-// usersBtn.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     getUsers();
-// });
-// homeBtn.addEventListener('click', (e) => {
-//     e.preventDefault()
-//     window.location.reload();
-//     // console.log(e)
-// })
