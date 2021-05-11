@@ -27,12 +27,21 @@ setTimeout(() => {
 
 userForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    let userName = e.target[0].value;
-    let userEmail = e.target[1].value;
-    signInUser();
+    let name = e.target[0].value;
+    let email = e.target[1].value;
+    fetch(baseUrl, {
+        method: "POST",
+        headers: {
+        'Content-Type': 'application/json',
+  },
+        body: JSON.stringify({user: {name: name, email: email}})
+    })
+    .then(response => response.json())
+    .then(user => console.log(user))
+    
 })
 
-function signInUser(){
+function signInUser(user){
     // needs to be a fetch request to get the user. 
     let username = document.querySelector("#username");
     welcomeMessage.style.visibility = "hidden";    
@@ -63,7 +72,7 @@ taskForm.addEventListener("submit", (e) => {
 
 return fetch( taskUrl, {
   method: "POST",
-  body: JSON.stringify()
+  body: JSON.stringify({task:{activity: e.target[0].value}})
 })
 .then( (response) => response.json())
 .then( (task) => console.log(task));
