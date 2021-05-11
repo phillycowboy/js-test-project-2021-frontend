@@ -39,7 +39,10 @@ userForm.addEventListener("submit", (e) => {
     .then(response => response.json())
     .then(user => console.log(user))
     
-})
+});
+
+// now you need to have the user have a hidden id field on the form so that the tasks that are getting posted can be asscociated 
+// to a user 
 
 function signInUser(user){
     // needs to be a fetch request to get the user. 
