@@ -37,7 +37,7 @@ userForm.addEventListener("submit", (e) => {
         body: JSON.stringify({user: {name: name, email: email}})
     })
     .then(response => response.json())
-    .then(user => console.log(user))
+    .then(user => signInUser(user))
     
 });
 
@@ -45,14 +45,12 @@ userForm.addEventListener("submit", (e) => {
 // to a user 
 
 function signInUser(user){
-    // needs to be a fetch request to get the user. 
-    let username = document.querySelector("#username");
     welcomeMessage.style.visibility = "hidden";    
     signInMessage.style.visibility = "hidden";    
     userForm.style.visibility = "hidden"; 
     let welcomeH2 = document.createElement("h2");
     document.body.append(welcomeH2);
-    welcomeH2.innerText = `Welcome, ${username.value}!`;
+    welcomeH2.innerText = `Welcome, ${user.name}!`;
     welcomeH2.style.textAlign = "center";
     welcomeH2.style.transition = "ease-in";
     setTimeout(() => {
