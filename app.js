@@ -61,20 +61,7 @@ taskForm.addEventListener("submit", (e) => {
 // you can grab the value from the form now you need to POST IT 
 // I would start watching the videos and following along since you are going to have to move code into OOP eventually. 
 
-    // let task = e.target[0].value
-    // you should fetch on the submit buttion 
-    // then create the task list in the function createTaskList
-    // return fetch(taskUrl, {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify()
-    // })
-    // .then(response => response.json())
-    // .then(task => console.log(task));
-    // createTaskList();
-   return fetch( taskUrl, {
+return fetch( taskUrl, {
   method: "POST",
   body: JSON.stringify()
 })
@@ -82,13 +69,7 @@ taskForm.addEventListener("submit", (e) => {
 .then( (task) => console.log(task));
 });
 
-// function createTaskList() {
-//     // return fetch(taskUrl, {
-//     //     method: "POST",
-//     //     body: task
-//     // })
-//     // .then()
-// }
+
 
 
 
