@@ -99,6 +99,16 @@ function createTask(task) {
     taskActivity.append(editBtn, deleteBtn, completeBtn);
     taskForm.reset();
     // now set event listeners for both  edit PATCH and delete DELETE buttons
+    deleteBtn.addEventListener("click", () => {
+         fetch(`${taskUrl}/${task.id}`, {
+            method: "DELETE",
+            // headers: {
+            //     "Content-Type": "application/json"
+            // }
+        })
+        .then(response => response.json())
+        .then(task => console.log(task))
+    })
 }
 
 // POST REQUEST is successful, now take the object and pass it in the function and append to your DOM with an edit and delete button 
