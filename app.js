@@ -92,6 +92,7 @@ function createTask(task) {
     let deleteBtn = document.createElement('button');
     let completeBtn = document.createElement('button');
     taskActivity.innerText = task.activity;
+    taskActivity.id = "task-activity";
     taskListArea.append(taskActivity);
     editBtn.innerText = "EDIT";
     deleteBtn.innerText = "DELETE";
@@ -107,8 +108,16 @@ function createTask(task) {
             // }
         })
         .then(response => response.json())
-        .then(task => console.log(task))
+        .then(task => deleteTask(task))
     })
+}
+
+function deleteTask(task) {
+    console.log(task);
+    // let deletedTask = task
+    // deletedTask.remove();
+    let deletedTask = document.getElementById("task-activity");
+    taskListArea.removeChild(deletedTask);
 }
 
 // POST REQUEST is successful, now take the object and pass it in the function and append to your DOM with an edit and delete button 
