@@ -41,6 +41,11 @@ h1  {
     transition: ease-in;
     text-align: center;
 } */
+#task-list-area {
+    background-color: lightblue;
+    border-radius: 5px 5px 10px;
+    box-shadow: black 5px 5px 10px;
+}
 
 html{
     scroll-behavior: smooth;
