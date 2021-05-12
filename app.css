@@ -44,4 +44,8 @@ h1  {
 
 html{
     scroll-behavior: smooth;
+    /* filter: invert(1)hue-rotate(180deg); */
+}
+body {
+    background-color: whitesmoke;
 }
