@@ -125,9 +125,12 @@ function deleteTask(task) {
     taskListArea.removeChild(deletedTask);
 }
 
-// POST REQUEST is successful, now take the object and pass it in the function and append to your DOM with an edit and delete button 
+ 
 // then --> PATCH request for edit button 
+// set up fetch for patch -> pass it a function to repopulate the input field and then re type what your task is and append to dom
+
 // then --> DELETE request for delete button
+//      has an eventlisterner for the DELETE fetch, is deleting the right one in the DB but is only removing the first one in the list
 
 
 
