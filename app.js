@@ -88,11 +88,17 @@ taskForm.addEventListener("submit", (e) => {
 
 function createTask(task) {
     let taskActivity = document.createElement('h4');
+    let editBtn = document.createElement('button');
+    let deleteBtn = document.createElement('button');
+    let completeBtn = document.createElement('button');
     taskActivity.innerText = task.activity;
     taskListArea.append(taskActivity);
-    // now clear the form after you apppend 
-
-    // then add buttons when you append. 
+    editBtn.innerText = "EDIT";
+    deleteBtn.innerText = "DELETE";
+    completeBtn.innerText = "COMPLETE";
+    taskActivity.append(editBtn, deleteBtn, completeBtn);
+    taskForm.reset();
+    // now set event listeners for both  edit PATCH and delete DELETE buttons
 }
 
 // POST REQUEST is successful, now take the object and pass it in the function and append to your DOM with an edit and delete button 
