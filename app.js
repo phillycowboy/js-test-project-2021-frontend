@@ -10,6 +10,7 @@ const taskDiv = document.querySelector("#task-div");
 const taskH2 = document.querySelector("#task-h2");
 const taskForm = document.querySelector("#task-form");
 const userId = document.querySelector("#user_id");
+const taskListArea = document.querySelector("#task-list-area");
 welcomeMessage.style.visibility = "hidden";    
 signInMessage.style.visibility = "hidden";    
 userForm.style.visibility = "hidden";    
@@ -82,8 +83,17 @@ taskForm.addEventListener("submit", (e) => {
         body: JSON.stringify({task:{activity: activity, user_id: userId}})
     })
     .then( (response) => response.json())
-    .then( (task) => console.log(task));
+    .then( (task) => createTask(task));
 });
+
+function createTask(task) {
+    let taskActivity = document.createElement('h4');
+    taskActivity.innerText = task.activity;
+    taskListArea.append(taskActivity);
+    // now clear the form after you apppend 
+
+    // then add buttons when you append. 
+}
 
 // POST REQUEST is successful, now take the object and pass it in the function and append to your DOM with an edit and delete button 
 // then --> PATCH request for edit button 
