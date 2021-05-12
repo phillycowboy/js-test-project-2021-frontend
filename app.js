@@ -114,9 +114,14 @@ function createTask(task) {
 
 function deleteTask(task) {
     console.log(task);
-    // let deletedTask = task
-    // deletedTask.remove();
-    let deletedTask = document.getElementById("task-activity");
+    // let tasks = document.getElementsByTagName('h4');
+    // for(let t of tasks){
+    //     if(task.id === t){
+    //         t.remove();
+    //         console.log(t);
+    //     }
+    // }
+    let deletedTask = document.querySelector("#task-activity")
     taskListArea.removeChild(deletedTask);
 }
 
