@@ -85,7 +85,7 @@ taskForm.addEventListener("submit", (e) => {
     .then( (response) => response.json())
     .then( (task) => createTask(task));
 });
-
+// let tasksArr = [];
 function createTask(task) {
     let taskActivity = document.createElement('h4');
     let editBtn = document.createElement('button');
@@ -98,8 +98,22 @@ function createTask(task) {
     deleteBtn.innerText = "DELETE";
     completeBtn.innerText = "COMPLETE";
     taskActivity.append(editBtn, deleteBtn, completeBtn);
+    // tasksArr.push(taskActivity);
     taskForm.reset();
     // now set event listeners for both  edit PATCH and delete DELETE buttons
+    editBtn.addEventListener("click", () => {
+        // console.log(e);
+            fetch(`${taskUrl}/${task.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({task: {activity: task.activity, user_id: task.user_id}})
+        })
+        .then(response => response.json())
+        .then(task => editTask(task))
+    });
+
     deleteBtn.addEventListener("click", () => {
          fetch(`${taskUrl}/${task.id}`, {
             method: "DELETE",
@@ -110,17 +124,21 @@ function createTask(task) {
         .then(response => response.json())
         .then(task => deleteTask(task))
     })
+    // return tasksArr;
+}
+
+function editTask(task) {
+    let activity = task.activity
+    console.log(activity)
 }
 
 function deleteTask(task) {
     console.log(task);
     // let tasks = document.getElementsByTagName('h4');
-    // for(let t of tasks){
-    //     if(task.id === t){
-    //         t.remove();
-    //         console.log(t);
-    //     }
+    // for(let t of tasksArr){
+    //     tasksArr.splice(t[i], 1)
     // }
+    // return tasksArr;
     let deletedTask = document.querySelector("#task-activity")
     taskListArea.removeChild(deletedTask);
 }
@@ -128,6 +146,7 @@ function deleteTask(task) {
  
 // then --> PATCH request for edit button 
 // set up fetch for patch -> pass it a function to repopulate the input field and then re type what your task is and append to dom
+        // has an eventlistener and has a successful PATCH request but cannot update info on the DOM because it is undefined.
 
 // then --> DELETE request for delete button
 //      has an eventlisterner for the DELETE fetch, is deleting the right one in the DB but is only removing the first one in the list
