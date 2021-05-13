@@ -7,40 +7,33 @@ h1  {
     font-family: 'Shadows Into Light', cursive;
     box-shadow: black 5px 5px 10px;
 }
-/* #header {
-    text-align: center;
-}
-#buttons {
-    justify-content: center;
-    display: flex;
-    align-items: center;
 
-} */
 #welcome-message{
-    display: flex;
-    justify-content: center;
+    display: none;
+    text-align: center;
     transition: ease-in;
 }
 #sign-in-message{
-    display: flex;
-    justify-content: center;
+    display: none;
+    text-align: center;
     transition: ease-in;
 }
 #user-form{
-    display: flex;
-    justify-content: center;
+    display: none;
+    text-align: center;
     transition: ease-in;
 }
 #task-div{
+    display: none;
     text-align: center;
     transition: ease-in;
 }
-/* input #username{
-    display: flex;
-    justify-content: center;
-    transition: ease-in;
+#edit-task-div{
+    display: none;
     text-align: center;
-} */
+    transition: ease-in;
+}
+
 #task-list-area {
     background-color: lightblue;
     border-radius: 5px 5px 10px;
@@ -49,7 +42,6 @@ h1  {
 
 html{
     scroll-behavior: smooth;
-    /* filter: invert(1)hue-rotate(180deg); */
 }
 body {
     background-color: whitesmoke;

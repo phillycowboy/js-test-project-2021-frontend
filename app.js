@@ -12,19 +12,13 @@ const taskH2 = document.querySelector("#task-h2");
 const taskForm = document.querySelector("#task-form");
 const userId = document.querySelector("#user_id");
 const taskListArea = document.querySelector("#task-list-area");
-welcomeMessage.style.visibility = "hidden";    
-signInMessage.style.visibility = "hidden";    
-userForm.style.visibility = "hidden";    
-taskDiv.style.visibility = "hidden"; 
-editTaskDiv.style.display = "none"   
-
+ 
 setTimeout(() => {
-    welcomeMessage.style.visibility = "visible";
-    // document.body.append(welcomeMessage);
+    welcomeMessage.style.display = "block";
     setTimeout(() => {
-        signInMessage.style.visibility = "visible";
+        signInMessage.style.display = "block";
         setTimeout(() => {
-            userForm.style.visibility = "visible";
+            userForm.style.display = "block";
         }, 1000);
     }, 1000);
 }, 2000);
@@ -50,31 +44,30 @@ userForm.addEventListener("submit", (e) => {
  
 
 function signInUser(user){
-    welcomeMessage.style.visibility = "hidden";    
-    signInMessage.style.visibility = "hidden";    
-    userForm.style.visibility = "hidden"; 
+    welcomeMessage.style.display = "none";    
+    signInMessage.style.display = "none";    
+    userForm.style.display = "none"; 
     let welcomeH2 = document.createElement("h2");
     document.body.append(welcomeH2);
     welcomeH2.innerText = `Welcome, ${user.name}!`;
     welcomeH2.style.textAlign = "center";
     welcomeH2.style.transition = "ease-in";
     setTimeout(() => {
-        welcomeH2.style.visibility = "hidden";
+        welcomeH2.style.display = "none";
+        // welcomeH2.style.textAlign = "center";
     }, 2000);
     appendTaskForm();
 };
 
 function appendTaskForm() {
     setTimeout(() => {
-        taskDiv.style.visibility = "visible"
+        taskDiv.style.display = "block";
     }, 2000);
 };
 
 taskForm.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log(e);
-// you can grab the value from the form now you need to POST IT 
-// I would start watching the videos and following along since you are going to have to move code into OOP eventually. 
     let activity = e.target[0].value
     let userId = e.target[1].value
     fetch( taskUrl, {
@@ -87,6 +80,7 @@ taskForm.addEventListener("submit", (e) => {
     .then( (response) => response.json())
     .then( (task) => createTask(task));
 });
+
 function createTask(task) {
     let taskActivity = document.createElement('h4');
     let editBtn = document.createElement('button');
@@ -100,9 +94,9 @@ function createTask(task) {
     completeBtn.innerText = "COMPLETE";
     taskActivity.append(editBtn, deleteBtn, completeBtn);
     taskForm.reset();
-    // now set event listeners for both  edit PATCH and delete DELETE buttons
     editBtn.addEventListener("click", (e) => {
-        // console.log(e);
+        e.preventDefault();
+        editTask(e);
         //     fetch(`${taskUrl}/${task.id}`, {
         //     method: "PATCH",
         //     headers: {
@@ -112,7 +106,6 @@ function createTask(task) {
         // })
         // .then(response => response.json())
         // .then(task => editTask(task))
-        editTask(e);
     });
 
     deleteBtn.addEventListener("click", (e) => {
