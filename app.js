@@ -8,6 +8,7 @@ const userForm = document.querySelector("#user-form");
 const submitBtn = document.querySelector("#submit-form-button");
 const taskDiv = document.querySelector("#task-div");
 const editTaskDiv = document.querySelector("#edit-task-div");
+const editTaskForm = document.querySelector("#edit-task-form");
 const taskH2 = document.querySelector("#task-h2");
 const taskForm = document.querySelector("#task-form");
 const userId = document.querySelector("#user_id");
@@ -119,11 +120,23 @@ function createTask(task) {
 }
 
 function editTask(e) {
+    e.preventDefault();
     taskDiv.style.display = "none";
     editTaskDiv.style.display = "block"
-    // have h4 that triggers the edit listener populate the edit input field
-    // then 
-    // remove that h4 from the DOM 
+    let btnWords = ["EDIT", "DELETE", "COMPLETE"];
+    let taskToEdit = e.target.parentNode.innerText;
+    let editTaskBtn = document.querySelector("#edit-task");
+    btnWords.forEach((word) => {
+        taskToEdit = taskToEdit.replace(word, '');
+    });
+    e.target.parentNode.remove();
+    editTaskForm.childNodes[1].value = taskToEdit;
+    editTaskBtn.addEventListener("submit", (e) =>{
+        e.preventDefault();
+        console.log('this will be where the PATCH happens');
+    });
+
+
     // on edit submit have it create the h4. 
 }
 
@@ -138,8 +151,7 @@ function deleteTask(e) {
     //  repopulate the edit form input and remove the h4 
     // on edit submit patch the new h4
 
-// then --> DELETE request for delete button
-//      delete works
+
 
 
 
