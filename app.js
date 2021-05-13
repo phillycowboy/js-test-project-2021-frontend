@@ -8,7 +8,7 @@ const userForm = document.querySelector("#user-form");
 const submitBtn = document.querySelector("#submit-form-button");
 const taskDiv = document.querySelector("#task-div");
 const editTaskDiv = document.querySelector("#edit-task-div");
-const editTaskForm = document.querySelector("#edit-task-form");
+const editTaskForm = document.querySelector(".edit-task-form");
 const taskH2 = document.querySelector("#task-h2");
 const taskForm = document.querySelector("#task-form");
 const userId = document.querySelector("#user_id");
@@ -87,26 +87,18 @@ function createTask(task) {
     let editBtn = document.createElement('button');
     let deleteBtn = document.createElement('button');
     let completeBtn = document.createElement('button');
-    taskActivity.innerText = task.activity;
     taskActivity.id = task.id;
+    taskActivity.innerText = task.activity;
     taskListArea.append(taskActivity);
     editBtn.innerText = "EDIT";
     deleteBtn.innerText = "DELETE";
+    deleteBtn.id = "delete-btn";
     completeBtn.innerText = "COMPLETE";
     taskActivity.append(editBtn, deleteBtn, completeBtn);
     taskForm.reset();
     editBtn.addEventListener("click", (e) => {
         e.preventDefault();
         editTask(e);
-        //     fetch(`${taskUrl}/${task.id}`, {
-        //     method: "PATCH",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify({task: {activity: task.activity, user_id: task.user_id}})
-        // })
-        // .then(response => response.json())
-        // .then(task => editTask(task))
     });
 
     deleteBtn.addEventListener("click", (e) => {
@@ -120,28 +112,48 @@ function createTask(task) {
 }
 
 function editTask(e) {
+    console.log("first edit event", e);
     e.preventDefault();
+    editTaskForm.id = e.target.parentNode.id;
     taskDiv.style.display = "none";
     editTaskDiv.style.display = "block"
     let btnWords = ["EDIT", "DELETE", "COMPLETE"];
     let taskToEdit = e.target.parentNode.innerText;
-    let editTaskBtn = document.querySelector("#edit-task");
     btnWords.forEach((word) => {
         taskToEdit = taskToEdit.replace(word, '');
     });
     e.target.parentNode.remove();
     editTaskForm.childNodes[1].value = taskToEdit;
-    editTaskBtn.addEventListener("submit", (e) =>{
-        e.preventDefault();
-        console.log('this will be where the PATCH happens');
+    editTaskForm.addEventListener("submit", (event) =>{
+        event.preventDefault();
+        console.log("edit event", event);
+        fetch(`${taskUrl}/${event.target.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({task: {activity: event.target[0].value}})
+        })
+        .then(response => response.json())
+        .then(task =>  updatedTask(task))
+
     });
 
 
     // on edit submit have it create the h4. 
 }
 
+function updatedTask(task){
+    editTaskDiv.style.display = "none";
+    taskDiv.style.display = "block";
+}
+
 function deleteTask(e) {
-    e.target.parentNode.remove();
+    let deleteBtn = document.querySelector("#delete-btn");
+    deleteBtn.removeEventListener("click", () => {
+        e.target.parentNode.remove();
+    });
+    console.log("delete event", e);
 }
 
  
