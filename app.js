@@ -146,14 +146,14 @@ function editTask(e) {
 function updatedTask(task){
     editTaskDiv.style.display = "none";
     taskDiv.style.display = "block";
+    createTask(task);
+    // append it back to the dom 
 }
 
 function deleteTask(e) {
-    let deleteBtn = document.querySelector("#delete-btn");
-    deleteBtn.removeEventListener("click", () => {
-        e.target.parentNode.remove();
-    });
+    e.target.parentNode.remove();
     console.log("delete event", e);
+    
 }
 
  
