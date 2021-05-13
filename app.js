@@ -87,7 +87,6 @@ taskForm.addEventListener("submit", (e) => {
     .then( (response) => response.json())
     .then( (task) => createTask(task));
 });
-// let tasksArr = [];
 function createTask(task) {
     let taskActivity = document.createElement('h4');
     let editBtn = document.createElement('button');
@@ -100,7 +99,6 @@ function createTask(task) {
     deleteBtn.innerText = "DELETE";
     completeBtn.innerText = "COMPLETE";
     taskActivity.append(editBtn, deleteBtn, completeBtn);
-    // tasksArr.push(taskActivity);
     taskForm.reset();
     // now set event listeners for both  edit PATCH and delete DELETE buttons
     editBtn.addEventListener("click", (e) => {
@@ -125,12 +123,15 @@ function createTask(task) {
         .then(response => response.json())
         .then( () => deleteTask(e))
     })
-    // return tasksArr;
 }
 
 function editTask(e) {
     taskDiv.style.display = "none";
     editTaskDiv.style.display = "block"
+    // have h4 that triggers the edit listener populate the edit input field
+    // then 
+    // remove that h4 from the DOM 
+    // on edit submit have it create the h4. 
 }
 
 function deleteTask(e) {
@@ -140,10 +141,12 @@ function deleteTask(e) {
  
 // then --> PATCH request for edit button 
 // set up fetch for patch -> pass it a function to repopulate the input field and then re type what your task is and append to dom
-        // has an eventlistener and has a successful PATCH request but cannot update info on the DOM because it is undefined.
+    //    switch the forms from create to edit 
+    //  repopulate the edit form input and remove the h4 
+    // on edit submit patch the new h4
 
 // then --> DELETE request for delete button
-//      has an eventlisterner for the DELETE fetch, is deleting the right one in the DB but is only removing the first one in the list
+//      delete works
 
 
 
