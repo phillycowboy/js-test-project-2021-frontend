@@ -135,7 +135,10 @@ function editTask(e) {
             body: JSON.stringify({task: {activity: event.target[0].value}})
         })
         .then(response => response.json())
-        .then(task =>  updatedTask(task))
+        .then(task =>  {
+            console.log(task)
+            updatedTask(task)
+        })
 
     });
 
