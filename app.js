@@ -7,6 +7,7 @@ const signInMessage = document.querySelector("#sign-in-message");
 const userForm = document.querySelector("#user-form");
 const submitBtn = document.querySelector("#submit-form-button");
 const taskDiv = document.querySelector("#task-div");
+const editTaskDiv = document.querySelector("#edit-task-div");
 const taskH2 = document.querySelector("#task-h2");
 const taskForm = document.querySelector("#task-form");
 const userId = document.querySelector("#user_id");
@@ -14,7 +15,8 @@ const taskListArea = document.querySelector("#task-list-area");
 welcomeMessage.style.visibility = "hidden";    
 signInMessage.style.visibility = "hidden";    
 userForm.style.visibility = "hidden";    
-taskDiv.style.visibility = "hidden";    
+taskDiv.style.visibility = "hidden"; 
+editTaskDiv.style.display = "none"   
 
 setTimeout(() => {
     welcomeMessage.style.visibility = "visible";
@@ -92,7 +94,7 @@ function createTask(task) {
     let deleteBtn = document.createElement('button');
     let completeBtn = document.createElement('button');
     taskActivity.innerText = task.activity;
-    taskActivity.id = "task-activity";
+    taskActivity.id = task.id;
     taskListArea.append(taskActivity);
     editBtn.innerText = "EDIT";
     deleteBtn.innerText = "DELETE";
@@ -101,46 +103,38 @@ function createTask(task) {
     // tasksArr.push(taskActivity);
     taskForm.reset();
     // now set event listeners for both  edit PATCH and delete DELETE buttons
-    editBtn.addEventListener("click", () => {
+    editBtn.addEventListener("click", (e) => {
         // console.log(e);
-            fetch(`${taskUrl}/${task.id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({task: {activity: task.activity, user_id: task.user_id}})
-        })
-        .then(response => response.json())
-        .then(task => editTask(task))
+        //     fetch(`${taskUrl}/${task.id}`, {
+        //     method: "PATCH",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({task: {activity: task.activity, user_id: task.user_id}})
+        // })
+        // .then(response => response.json())
+        // .then(task => editTask(task))
+        editTask(e);
     });
 
-    deleteBtn.addEventListener("click", () => {
+    deleteBtn.addEventListener("click", (e) => {
+        e.preventDefault()
          fetch(`${taskUrl}/${task.id}`, {
             method: "DELETE",
-            // headers: {
-            //     "Content-Type": "application/json"
-            // }
         })
         .then(response => response.json())
-        .then(task => deleteTask(task))
+        .then( () => deleteTask(e))
     })
     // return tasksArr;
 }
 
-function editTask(task) {
-    let activity = task.activity
-    console.log(activity)
+function editTask(e) {
+    taskDiv.style.display = "none";
+    editTaskDiv.style.display = "block"
 }
 
-function deleteTask(task) {
-    console.log(task);
-    // let tasks = document.getElementsByTagName('h4');
-    // for(let t of tasksArr){
-    //     tasksArr.splice(t[i], 1)
-    // }
-    // return tasksArr;
-    let deletedTask = document.querySelector("#task-activity")
-    taskListArea.removeChild(deletedTask);
+function deleteTask(e) {
+    e.target.parentNode.remove();
 }
 
  
