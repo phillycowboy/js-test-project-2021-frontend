@@ -13,6 +13,7 @@ const taskH2 = document.querySelector("#task-h2");
 const taskForm = document.querySelector("#task-form");
 const userId = document.querySelector("#user_id");
 const taskListArea = document.querySelector("#task-list-area");
+const logo = document.querySelector("#logo-text");
  
 setTimeout(() => {
     welcomeMessage.style.display = "block";
@@ -48,6 +49,7 @@ function signInUser(user){
     welcomeMessage.style.display = "none";    
     signInMessage.style.display = "none";    
     userForm.style.display = "none"; 
+    logo.style.display = "none"; 
     let welcomeH2 = document.createElement("h2");
     document.body.append(welcomeH2);
     welcomeH2.innerText = `Welcome, ${user.name}!`;
