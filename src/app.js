@@ -29,6 +29,12 @@ setTimeout(() => {
 
 userForm.addEventListener("submit", (e) => {
     e.preventDefault();
+    api.createNewUser(e.target)
+    .then(response => {
+        let currentUser = new User(response)
+        const hiddenUserId = document.querySelector("#user-id")
+        hiddenUserId.value = currentUser.id
+    })
 //     let name = e.target[0].value;
 //     let email = e.target[1].value;
 //     fetch(baseUrl, {

@@ -6,8 +6,6 @@ class ApiService{
     }
 
     createNewUser(user){
-        // let name = e.target[0].value;
-        // let email = e.target[1].value;
         return fetch(this.baseUrl, {
             method: "POST",
             headers: {
@@ -18,10 +16,6 @@ class ApiService{
             })
         })
         .then(response => response.json())
-        .then(user => {
-            userId.value = user.id
-            signInUser(user)
-        });
     }
 
     createNewTask(){
