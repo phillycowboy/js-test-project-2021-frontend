@@ -1,6 +1,8 @@
-const baseUrl = "http://localhost:3000/users";
-const taskUrl = "http://localhost:3000/tasks";
-const homeUrl = "http://localhost:3000/"
+// const baseUrl = "http://localhost:3000/users";
+// const taskUrl = "http://localhost:3000/tasks";
+// const homeUrl = "http://localhost:3000/"
+const api = new ApiService
+console.log("api", api);
 
 const welcomeMessage = document.querySelector("#welcome-message");
 const signInMessage = document.querySelector("#sign-in-message");
@@ -27,20 +29,20 @@ setTimeout(() => {
 
 userForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    let name = e.target[0].value;
-    let email = e.target[1].value;
-    fetch(baseUrl, {
-        method: "POST",
-        headers: {
-        'Content-Type': 'application/json',
-  },
-        body: JSON.stringify({user: {name: name, email: email}})
-    })
-    .then(response => response.json())
-    .then(user => {
-        userId.value = user.id
-        signInUser(user)
-    })
+//     let name = e.target[0].value;
+//     let email = e.target[1].value;
+//     fetch(baseUrl, {
+//         method: "POST",
+//         headers: {
+//         'Content-Type': 'application/json',
+//   },
+//         body: JSON.stringify({user: {name: name, email: email}})
+//     })
+//     .then(response => response.json())
+//     .then(user => {
+//         userId.value = user.id
+//         signInUser(user)
+//     })
     
 });
  
@@ -73,15 +75,15 @@ taskForm.addEventListener("submit", (e) => {
     console.log(e);
     let activity = e.target[0].value
     let userId = e.target[1].value
-    fetch( taskUrl, {
-        method: "POST",
-        headers: {
-            "Content-Type": 'application/json'
-    },
-        body: JSON.stringify({task:{activity: activity, user_id: userId}})
-    })
-    .then( (response) => response.json())
-    .then( (task) => createTask(task));
+    // fetch( taskUrl, {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": 'application/json'
+    // },
+    //     body: JSON.stringify({task:{activity: activity, user_id: userId}})
+    // })
+    // .then( (response) => response.json())
+    // .then( (task) => createTask(task));
 });
 
 function createTask(task) {
@@ -105,11 +107,11 @@ function createTask(task) {
 
     deleteBtn.addEventListener("click", (e) => {
         e.preventDefault()
-         fetch(`${taskUrl}/${task.id}`, {
-            method: "DELETE",
-        })
-        .then(response => response.json())
-        .then( () => deleteTask(e))
+        //  fetch(`${taskUrl}/${task.id}`, {
+        //     method: "DELETE",
+        // })
+        // .then(response => response.json())
+        // .then( () => deleteTask(e))
     })
 }
 
@@ -129,18 +131,18 @@ function editTask(e) {
     editTaskForm.addEventListener("submit", (event) =>{
         event.preventDefault();
         console.log("edit event", event);
-        fetch(`${taskUrl}/${event.target.id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({task: {activity: event.target[0].value}})
-        })
-        .then(response => response.json())
-        .then(task =>  {
-            console.log(task)
-            updatedTask(task)
-        })
+        // fetch(`${taskUrl}/${event.target.id}`, {
+        //     method: "PATCH",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({task: {activity: event.target[0].value}})
+        // })
+        // .then(response => response.json())
+        // .then(task =>  {
+        //     console.log(task)
+        //     updatedTask(task)
+        // })
 
     });
 
