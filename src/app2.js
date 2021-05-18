@@ -73,9 +73,8 @@ function createTask(event) {
     api.createNewTask(task)
     .then(response => {
         let newTask = new Task(response)
-        // newTask.innerText = task.activity
         const taskListArea = document.querySelector("#task-list-area");
-        taskListArea.append(newTask)
+        taskListArea.append(newTask.activity)
     })
 }
 
