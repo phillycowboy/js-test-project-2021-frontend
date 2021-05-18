@@ -45,7 +45,12 @@ function signInUser(event) {
         name: event.target[0].value,
         email: event.target[1].value
     }
-    api.createNewUser(user);
+    api.createNewUser(user)
+    .then(response => {
+        let currentUser = new User(response)
+        const hiddenId = document.querySelector("#user_id")
+        hiddenId.value = currentUser.id 
+    })
     hideUserForm();
     displayTaskForm();
 }
