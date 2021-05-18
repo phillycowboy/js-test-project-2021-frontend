@@ -18,16 +18,17 @@ class ApiService{
         .then(response => response.json())
     }
 
-    createNewTask(){
+    createNewTask(task){
         return fetch( this.taskUrl, {
             method: "POST",
             headers: {
                 "Content-Type": 'application/json'
             },
-            body: JSON.stringify({task:{activity: activity, user_id: userId}})
+            body: JSON.stringify({
+                task: task 
+            })
         })
         .then( (response) => response.json())
-        .then( (task) => createTask(task));
     }
 
     editTask(task){

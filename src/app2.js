@@ -10,6 +10,7 @@ const welcomeMessage = document.querySelector("#welcome-message");
 const signInMessage = document.querySelector("#sign-in-message");
 const userForm = document.querySelector("#user-form");
 const taskDiv = document.querySelector("#task-div");
+const taskForm = document.querySelector("#task-form");
 
 function init(){
     console.log("Dom has loaded");
@@ -21,6 +22,9 @@ function eventListener() {
     // add forms and eventlisteners here
     userForm.addEventListener("submit", function(event){
         signInUser(event)
+    });
+    taskForm.addEventListener("submit", function(event){
+        createTask(event)
     })
 
 }
@@ -57,6 +61,22 @@ function signInUser(event) {
 
 function displayTaskForm() {
     taskDiv.style.display = "block";
+}
+
+function createTask(event) {
+    event.preventDefault()
+    console.log(event)
+    let task = {
+        activity: event.target[0].value,
+        user_id: event.target[1].value
+    }
+    api.createNewTask(task)
+    .then(response => {
+        let newTask = new Task(response)
+        // newTask.innerText = task.activity
+        const taskListArea = document.querySelector("#task-list-area");
+        taskListArea.append(newTask)
+    })
 }
 
 

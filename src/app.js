@@ -12,9 +12,9 @@
 const editTaskDiv = document.querySelector("#edit-task-div");
 const editTaskForm = document.querySelector(".edit-task-form");
 const taskH2 = document.querySelector("#task-h2");
-const taskForm = document.querySelector("#task-form");
+// const taskForm = document.querySelector("#task-form");
 const userId = document.querySelector("#user_id");
-const taskListArea = document.querySelector("#task-list-area");
+// const taskListArea = document.querySelector("#task-list-area");
 // const logo = document.querySelector("#logo-text");
  
 // setTimeout(() => {
