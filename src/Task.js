@@ -2,6 +2,7 @@ class Task{
 
     constructor(task){
         this.activity = task.activity
+        this.user_id = task.user_id
         this.addTask()
     }
 
