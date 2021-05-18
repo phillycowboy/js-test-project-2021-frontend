@@ -105,7 +105,7 @@ function createTask(task) {
     deleteBtn.id = "delete-btn";
     completeBtn.innerText = "COMPLETE";
     taskActivity.append(editBtn, deleteBtn, completeBtn);
-    taskForm.reset();
+    // taskForm.reset();
     editBtn.addEventListener("click", (e) => {
         e.preventDefault();
         editTask(e);
