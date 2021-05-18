@@ -1,40 +1,40 @@
 // const baseUrl = "http://localhost:3000/users";
 // const taskUrl = "http://localhost:3000/tasks";
 // const homeUrl = "http://localhost:3000/"
-const api = new ApiService
-console.log("api", api);
+// const api = new ApiService
+// console.log("api", api);
 
-const welcomeMessage = document.querySelector("#welcome-message");
-const signInMessage = document.querySelector("#sign-in-message");
-const userForm = document.querySelector("#user-form");
-const submitBtn = document.querySelector("#submit-form-button");
-const taskDiv = document.querySelector("#task-div");
+// const welcomeMessage = document.querySelector("#welcome-message");
+// const signInMessage = document.querySelector("#sign-in-message");
+// const userForm = document.querySelector("#user-form");
+// const submitBtn = document.querySelector("#submit-form-button");
+// const taskDiv = document.querySelector("#task-div");
 const editTaskDiv = document.querySelector("#edit-task-div");
 const editTaskForm = document.querySelector(".edit-task-form");
 const taskH2 = document.querySelector("#task-h2");
 const taskForm = document.querySelector("#task-form");
 const userId = document.querySelector("#user_id");
 const taskListArea = document.querySelector("#task-list-area");
-const logo = document.querySelector("#logo-text");
+// const logo = document.querySelector("#logo-text");
  
-setTimeout(() => {
-    welcomeMessage.style.display = "block";
-    setTimeout(() => {
-        signInMessage.style.display = "block";
-        setTimeout(() => {
-            userForm.style.display = "block";
-        }, 1000);
-    }, 1000);
-}, 2000);
+// setTimeout(() => {
+//     // welcomeMessage.style.display = "block";
+//     setTimeout(() => {
+//         // signInMessage.style.display = "block";
+//         setTimeout(() => {
+//             userForm.style.display = "block";
+//         }, 1000);
+//     }, 1000);
+// }, 2000);
 
-userForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    api.createNewUser(e.target)
-    .then(response => {
-        let currentUser = new User(response)
-        const hiddenUserId = document.querySelector("#user-id")
-        hiddenUserId.value = currentUser.id
-    })
+// userForm.addEventListener("submit", (e) => {
+//     e.preventDefault();
+//     api.createNewUser(e.target)
+//     .then(response => {
+//         let currentUser = new User(response)
+//         const hiddenUserId = document.querySelector("#user-id")
+//         hiddenUserId.value = currentUser.id
+//     })
 //     let name = e.target[0].value;
 //     let email = e.target[1].value;
 //     fetch(baseUrl, {
@@ -50,31 +50,31 @@ userForm.addEventListener("submit", (e) => {
 //         signInUser(user)
 //     })
     
-});
+// });
  
 
-function signInUser(user){
-    welcomeMessage.style.display = "none";    
-    signInMessage.style.display = "none";    
-    userForm.style.display = "none"; 
-    logo.style.display = "none"; 
-    let welcomeH2 = document.createElement("h2");
-    document.body.append(welcomeH2);
-    welcomeH2.innerText = `Welcome, ${user.name}!`;
-    welcomeH2.style.textAlign = "center";
-    welcomeH2.style.transition = "ease-in";
-    setTimeout(() => {
-        welcomeH2.style.display = "none";
-        // welcomeH2.style.textAlign = "center";
-    }, 2000);
-    appendTaskForm();
-};
+// function signInUser(user){
+//     welcomeMessage.style.display = "none";    
+//     signInMessage.style.display = "none";    
+//     userForm.style.display = "none"; 
+//     logo.style.display = "none"; 
+//     let welcomeH2 = document.createElement("h2");
+//     document.body.append(welcomeH2);
+//     welcomeH2.innerText = `Welcome, ${user.name}!`;
+//     welcomeH2.style.textAlign = "center";
+//     welcomeH2.style.transition = "ease-in";
+//     setTimeout(() => {
+//         welcomeH2.style.display = "none";
+//         // welcomeH2.style.textAlign = "center";
+//     }, 2000);
+//     appendTaskForm();
+// };
 
-function appendTaskForm() {
-    setTimeout(() => {
-        taskDiv.style.display = "block";
-    }, 2000);
-};
+// function appendTaskForm() {
+//     setTimeout(() => {
+//         taskDiv.style.display = "block";
+//     }, 2000);
+// };
 
 taskForm.addEventListener("submit", (e) => {
     e.preventDefault();

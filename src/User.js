@@ -6,6 +6,7 @@ class User{
     }
 
     addUser(){
-        
+        // set hidden field of user id to this.id 
+        // referenece jens code 
     }
 }
