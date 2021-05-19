@@ -11,9 +11,9 @@
 // const taskDiv = document.querySelector("#task-div");
 // const editTaskDiv = document.querySelector("#edit-task-div");
 // const editTaskForm = document.querySelector(".edit-task-form");
-const taskH2 = document.querySelector("#task-h2");
+// const taskH2 = document.querySelector("#task-h2");
 // const taskForm = document.querySelector("#task-form");
-const userId = document.querySelector("#user_id");
+// const userId = document.querySelector("#user_id");
 // const taskListArea = document.querySelector("#task-list-area");
 // const logo = document.querySelector("#logo-text");
  
@@ -92,51 +92,51 @@ const userId = document.querySelector("#user_id");
     // .then( (task) => createTask(task));
 // });
 
-function createTask(task) {
-    let taskActivity = document.createElement('h4');
-    let editBtn = document.createElement('button');
-    let deleteBtn = document.createElement('button');
-    let completeBtn = document.createElement('button');
-    taskActivity.id = task.id;
-    taskActivity.innerText = task.activity;
-    taskListArea.append(taskActivity);
-    editBtn.innerText = "EDIT";
-    deleteBtn.innerText = "DELETE";
-    deleteBtn.id = "delete-btn";
-    completeBtn.innerText = "COMPLETE";
-    taskActivity.append(editBtn, deleteBtn, completeBtn);
-    // taskForm.reset();
-    editBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        editTask(e);
-    });
+// function createTask(task) {
+//     let taskActivity = document.createElement('h4');
+//     let editBtn = document.createElement('button');
+//     let deleteBtn = document.createElement('button');
+//     let completeBtn = document.createElement('button');
+//     taskActivity.id = task.id;
+//     taskActivity.innerText = task.activity;
+//     taskListArea.append(taskActivity);
+//     editBtn.innerText = "EDIT";
+//     deleteBtn.innerText = "DELETE";
+//     deleteBtn.id = "delete-btn";
+//     completeBtn.innerText = "COMPLETE";
+//     taskActivity.append(editBtn, deleteBtn, completeBtn);
+//     // taskForm.reset();
+//     editBtn.addEventListener("click", (e) => {
+//         e.preventDefault();
+//         editTask(e);
+//     });
 
-    deleteBtn.addEventListener("click", (e) => {
-        e.preventDefault()
-        //  fetch(`${taskUrl}/${task.id}`, {
-        //     method: "DELETE",
-        // })
-        // .then(response => response.json())
-        // .then( () => deleteTask(e))
-    })
-}
+//     deleteBtn.addEventListener("click", (e) => {
+//         e.preventDefault()
+//         //  fetch(`${taskUrl}/${task.id}`, {
+//         //     method: "DELETE",
+//         // })
+//         // .then(response => response.json())
+//         // .then( () => deleteTask(e))
+//     })
+// }
 
-function editTask(e) {
-    console.log("first edit event", e);
-    e.preventDefault();
-    editTaskForm.id = e.target.parentNode.id;
-    taskDiv.style.display = "none";
-    editTaskDiv.style.display = "block"
-    let btnWords = ["EDIT", "DELETE", "COMPLETE"];
-    let taskToEdit = e.target.parentNode.innerText;
-    btnWords.forEach((word) => {
-        taskToEdit = taskToEdit.replace(word, '');
-    });
-    e.target.parentNode.remove();
-    editTaskForm.childNodes[1].value = taskToEdit;
-    editTaskForm.addEventListener("submit", (event) =>{
-        event.preventDefault();
-        console.log("edit event", event);
+// function editTask(e) {
+//     console.log("first edit event", e);
+//     e.preventDefault();
+//     editTaskForm.id = e.target.parentNode.id;
+//     taskDiv.style.display = "none";
+//     editTaskDiv.style.display = "block"
+//     let btnWords = ["EDIT", "DELETE", "COMPLETE"];
+//     let taskToEdit = e.target.parentNode.innerText;
+//     btnWords.forEach((word) => {
+//         taskToEdit = taskToEdit.replace(word, '');
+//     });
+//     e.target.parentNode.remove();
+//     editTaskForm.childNodes[1].value = taskToEdit;
+//     editTaskForm.addEventListener("submit", (event) =>{
+//         event.preventDefault();
+//         console.log("edit event", event);
         // fetch(`${taskUrl}/${event.target.id}`, {
         //     method: "PATCH",
         //     headers: {
@@ -150,18 +150,18 @@ function editTask(e) {
         //     updatedTask(task)
         // })
 
-    });
+    // });
 
 
     // on edit submit have it create the h4. 
-}
+// }
 
-function updatedTask(task){
-    editTaskDiv.style.display = "none";
-    taskDiv.style.display = "block";
-    createTask(task);
-    // append it back to the dom 
-}
+// function updatedTask(task){
+//     editTaskDiv.style.display = "none";
+//     taskDiv.style.display = "block";
+//     createTask(task);
+//     // append it back to the dom 
+// }
 
 // function deleteTask(e) {
 //     e.target.parentNode.remove();

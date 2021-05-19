@@ -33,7 +33,7 @@ function eventListener() {
         if(event.target.className === "delete-btn"){
             removeTask(event)
         }else if(event.target.className === "edit-btn"){
-            editTask(event)
+            editTaskOnDom(event)
         }
     })
 
@@ -107,7 +107,7 @@ function createTask(event) {
     })
 }
 
-function editTask(event) {
+function editTaskOnDom(event) {
     console.log("the event is working", event);
     hideTaskForm();
     displayEditForm();
@@ -121,13 +121,13 @@ function editTask(event) {
 }
 
 function updateTaskOnDom(event) {
-    event.preventDefault();
-    console.log("edit event", event)
-    let task = event.target[0].value
+    let task =  event.target[0].value
     let id = event.target[0].id
     api.editTask(task, id)
+    .then(response => new Task(response))
     hideEditForm();
     displayTaskForm();
+  
 }
 
 function removeTask(event) {

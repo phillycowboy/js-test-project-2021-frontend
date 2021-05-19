@@ -38,7 +38,7 @@ class ApiService{
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                task: task  
+                task: {activity:task}  
             })
         })
         .then(response => response.json())
