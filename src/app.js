@@ -9,8 +9,8 @@
 // const userForm = document.querySelector("#user-form");
 // const submitBtn = document.querySelector("#submit-form-button");
 // const taskDiv = document.querySelector("#task-div");
-const editTaskDiv = document.querySelector("#edit-task-div");
-const editTaskForm = document.querySelector(".edit-task-form");
+// const editTaskDiv = document.querySelector("#edit-task-div");
+// const editTaskForm = document.querySelector(".edit-task-form");
 const taskH2 = document.querySelector("#task-h2");
 // const taskForm = document.querySelector("#task-form");
 const userId = document.querySelector("#user_id");
@@ -76,11 +76,11 @@ const userId = document.querySelector("#user_id");
 //     }, 2000);
 // };
 
-taskForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    console.log(e);
-    let activity = e.target[0].value
-    let userId = e.target[1].value
+// taskForm.addEventListener("submit", (e) => {
+//     e.preventDefault();
+//     console.log(e);
+//     let activity = e.target[0].value
+//     let userId = e.target[1].value
     // fetch( taskUrl, {
     //     method: "POST",
     //     headers: {
@@ -90,7 +90,7 @@ taskForm.addEventListener("submit", (e) => {
     // })
     // .then( (response) => response.json())
     // .then( (task) => createTask(task));
-});
+// });
 
 function createTask(task) {
     let taskActivity = document.createElement('h4');
@@ -163,11 +163,11 @@ function updatedTask(task){
     // append it back to the dom 
 }
 
-function deleteTask(e) {
-    e.target.parentNode.remove();
-    console.log("delete event", e);
+// function deleteTask(e) {
+//     e.target.parentNode.remove();
+//     console.log("delete event", e);
     
-}
+// }
 
  
 // then --> PATCH request for edit button 

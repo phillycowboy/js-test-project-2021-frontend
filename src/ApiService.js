@@ -31,8 +31,8 @@ class ApiService{
         .then( (response) => response.json())
     }
 
-    editTask(task){
-        fetch(this.taskUrl + task.id, {
+    editTask(task, id){
+       return fetch(`${this.taskUrl}/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -42,10 +42,6 @@ class ApiService{
             })
         })
         .then(response => response.json())
-        .then(task =>  {
-            console.log(task)
-            updatedTask(task)
-        })
     }
 
     deleteTask(id){

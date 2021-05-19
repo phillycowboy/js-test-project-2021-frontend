@@ -12,6 +12,8 @@ const userForm = document.querySelector("#user-form");
 const taskDiv = document.querySelector("#task-div");
 const taskForm = document.querySelector("#task-form");
 const taskListArea = document.querySelector("#task-list-area");
+const editTaskDiv = document.querySelector("#edit-task-div");
+const editTaskForm = document.querySelector(".edit-task-form");
 
 function init(){
     console.log("Dom has loaded");
@@ -30,6 +32,8 @@ function eventListener() {
     taskListArea.addEventListener("click", function(event){
         if(event.target.className === "delete-btn"){
             removeTask(event)
+        }else if(event.target.className === "edit-btn"){
+            editTask(event)
         }
     })
 
@@ -70,6 +74,18 @@ function displayTaskForm() {
     taskDiv.style.display = "block";
 }
 
+function hideTaskForm() {
+    taskDiv.style.display = "none";
+}
+
+function displayEditForm(){
+    editTaskDiv.style.display = "block";
+}
+
+function hideEditForm(){
+    editTaskDiv.style.display = "none";
+}
+
 function createTask(event) {
     event.preventDefault()
     console.log(event)
@@ -89,6 +105,29 @@ function createTask(event) {
         //     console.log("delete event", e);
         // });
     })
+}
+
+function editTask(event) {
+    console.log("the event is working", event);
+    hideTaskForm();
+    displayEditForm();
+    editTaskForm.childNodes[1].id = event.target.parentNode.childNodes[1].id
+    editTaskForm.childNodes[1].value = event.target.parentNode.childNodes[1].innerText 
+    event.target.parentNode.remove()
+    editTaskForm.addEventListener("submit", function(event){
+        event.preventDefault();
+        updateTaskOnDom(event);
+    })
+}
+
+function updateTaskOnDom(event) {
+    event.preventDefault();
+    console.log("edit event", event)
+    let task = event.target[0].value
+    let id = event.target[0].id
+    api.editTask(task, id)
+    hideEditForm();
+    displayTaskForm();
 }
 
 function removeTask(event) {
