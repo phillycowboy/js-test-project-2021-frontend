@@ -11,6 +11,7 @@ const signInMessage = document.querySelector("#sign-in-message");
 const userForm = document.querySelector("#user-form");
 const taskDiv = document.querySelector("#task-div");
 const taskForm = document.querySelector("#task-form");
+const taskListArea = document.querySelector("#task-list-area");
 
 function init(){
     console.log("Dom has loaded");
@@ -25,7 +26,13 @@ function eventListener() {
     });
     taskForm.addEventListener("submit", function(event){
         createTask(event)
+    });
+    taskListArea.addEventListener("click", function(event){
+        if(event.target.className === "delete-btn"){
+            removeTask(event)
+        }
     })
+
 
 }
 
@@ -77,7 +84,19 @@ function createTask(event) {
         // let newTask =
         // const taskListArea = document.querySelector("#task-list-area");
         // taskListArea.append(newTask.activity)
+        // const delBtn = document.querySelector("#delete-btn");
+        // delBtn.addEventListener("click", function(e){
+        //     console.log("delete event", e);
+        // });
     })
+}
+
+function removeTask(event) {
+    event.preventDefault();
+    // console.log(event);
+    let id = event.target.parentNode.childNodes[1].id
+    api.deleteTask(id)
+    event.target.parentNode.remove()
 }
 
 

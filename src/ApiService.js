@@ -48,11 +48,10 @@ class ApiService{
         })
     }
 
-    deleteTask(task){
-        return fetch(this.taskUrl + task.id, {
+    deleteTask(id){
+        return fetch(`${this.taskUrl}/${id}`, {
             method: "DELETE",
         })
         .then(response => response.json())
-        .then( () => deleteTask(e))
     }
 }
