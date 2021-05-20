@@ -22,7 +22,6 @@ function init(){
 }
 
 function eventListener() {
-    // add forms and eventlisteners here
     userForm.addEventListener("submit", function(event){
         signInUser(event)
     });
@@ -33,23 +32,21 @@ function eventListener() {
         if(event.target.matches(".delete-btn")){
             removeTask(event)
         }
-    })
+    });
     document.addEventListener("click", function(event){
         if(event.target.matches(".edit-btn")){
             editTaskOnDom(event)
         }
-    })
-    // taskListArea.addEventListener("click", function(event){
-    //     if(event.target.className === "delete-btn"){
-    //         removeTask(event)
-    //     }else if(event.target.className === "edit-btn"){
-    //         editTaskOnDom(event)
-    //     }
-    // });
+    });
+    document.addEventListener("click", function(event){
+        if(event.target.matches(".com-btn")){
+            event.target.parentNode.style.textDecoration = "line-through"
+        }
+    });
     editTaskForm.addEventListener("submit", function(event){
         event.preventDefault();
         updateTaskOnDom(event);
-    })
+    });
 
 
 }
