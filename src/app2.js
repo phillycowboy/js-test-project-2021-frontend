@@ -29,12 +29,21 @@ function eventListener() {
     taskForm.addEventListener("submit", function(event){
         createTask(event)
     });
-    taskListArea.addEventListener("click", function(event){
-        if(event.target.className === "delete-btn"){
+    document.addEventListener("click", function(event){
+        if(event.target.matches(".delete-btn")){
             removeTask(event)
-        }else if(event.target.className === "edit-btn"){
-            editTaskOnDom(event)
         }
+    })
+    // taskListArea.addEventListener("click", function(event){
+    //     if(event.target.className === "delete-btn"){
+    //         removeTask(event)
+    //     }else if(event.target.className === "edit-btn"){
+    //         editTaskOnDom(event)
+    //     }
+    // });
+    editTaskForm.addEventListener("submit", function(event){
+        event.preventDefault();
+        updateTaskOnDom(event);
     })
 
 
@@ -132,7 +141,6 @@ function updateTaskOnDom(event) {
 
 function removeTask(event) {
     event.preventDefault();
-    // console.log(event);
     let id = event.target.parentNode.childNodes[1].id
     api.deleteTask(id)
     event.target.parentNode.remove()
