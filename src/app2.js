@@ -34,6 +34,11 @@ function eventListener() {
             removeTask(event)
         }
     })
+    document.addEventListener("click", function(event){
+        if(event.target.matches(".edit-btn")){
+            editTaskOnDom(event)
+        }
+    })
     // taskListArea.addEventListener("click", function(event){
     //     if(event.target.className === "delete-btn"){
     //         removeTask(event)
@@ -74,6 +79,7 @@ function signInUser(event) {
         let currentUser = new User(response)
         const hiddenId = document.querySelector("#user_id")
         hiddenId.value = currentUser.id 
+        console.log(response);
     })
     hideUserForm();
     displayTaskForm();
@@ -123,10 +129,10 @@ function editTaskOnDom(event) {
     editTaskForm.childNodes[1].id = event.target.parentNode.childNodes[1].id
     editTaskForm.childNodes[1].value = event.target.parentNode.childNodes[1].innerText 
     event.target.parentNode.remove()
-    editTaskForm.addEventListener("submit", function(event){
-        event.preventDefault();
-        updateTaskOnDom(event);
-    })
+    // editTaskForm.addEventListener("submit", function(event){
+    //     event.preventDefault();
+    //     updateTaskOnDom(event);
+    // })
 }
 
 function updateTaskOnDom(event) {
