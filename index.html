@@ -23,15 +23,15 @@
         <h2 class="tracking-in-expand" id="welcome-message">Hello and Welcome to Tasker</h2>
         <h2 class="tracking-in-expand" id="sign-in-message">Please Sign In</h2>
         <form action="" id="user-form">
-            <input type="text" name="name" placeholder="Enter Your Name" id="username"><br>
-            <input type="email" name="email" placeholder="Enter Your Email"><br>
+            <input type="text" name="name" placeholder="Enter Your Name" id="username" required><br>
+            <input type="email" name="email" placeholder="Enter Your Email" required><br>
             <input type="submit" name="submit" id="submit-form-button">
         </form>
     </div>
     <div id="task-div">
         <h2 id="task=h2">Create A New Task:</h2>
         <form action="" id="task-form">
-            <input type="text" name="task" id="new-task" placeholder="New Task">
+            <input type="text" name="task" id="new-task" placeholder="New Task" required>
             <input type="hidden" name="user_id" id="user_id">
             <input type="submit" name="submit" id="submit-task">
         </form>
@@ -39,7 +39,7 @@
     <div id="edit-task-div">
         <h2 id="task=h2">Edit Your Task:</h2>
         <form class="edit-task-form">
-            <input type="text" name="task" id="edit-task">
+            <input type="text" name="task" id="edit-task" required>
             <input type="hidden" name="task-id" id="edit-task-id">
             <input type="hidden" name="edit-task-user-id" id="edit-task-user-id">
             <input type="submit" name="submit" id="edit-task" value="Edit">
