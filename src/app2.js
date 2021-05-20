@@ -109,6 +109,7 @@ function createTask(event) {
     .then(response => {
         new Task(response)
         taskForm.reset()
+
         // let newTask =
         // const taskListArea = document.querySelector("#task-list-area");
         // taskListArea.append(newTask.activity)
