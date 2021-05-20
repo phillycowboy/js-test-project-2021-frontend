@@ -144,6 +144,6 @@ function removeTask(event) {
 
 init();
 
-// make helper functions to hide or display divs and forms 
+
 
 // then worry aobut style/timeouts
