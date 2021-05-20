@@ -8,16 +8,7 @@ h1  {
     box-shadow: black 5px 5px 10px;
     display: none;
 }
-/* #logo{
-  width: 500px;
-  height: 500px;
-  line-height: 500px;
-  border-radius: 50%;
-  font-size: 50px;
-  color: #fff;
-  text-align: center;
-  background: #000
-} */
+
 #logo-text{
     color: black;
     font-family: 'Playball', cursive;
@@ -159,40 +150,40 @@ h1  {
     display: none;
     text-align: center;
     transition: ease-in;
+    font-family: 'Quicksand', sans-serif;
 }
 #sign-in-message{
     display: none;
     text-align: center;
     transition: ease-in;
+    font-family: 'Quicksand', sans-serif;
 }
 #user-form{
     display: none;
     text-align: center;
     transition: ease-in;
+    font-family: 'Quicksand', sans-serif;
 }
 #task-div{
     display: none;
     text-align: center;
     transition: ease-in;
+    font-family: 'Quicksand', sans-serif;
 }
 #edit-task-div{
     display: none;
     text-align: center;
     transition: ease-in;
+    font-family: 'Quicksand', sans-serif;
+}
+#task-list-area{
+  padding-top: 50px;
+  padding-left: 30px;
 }
 
-#task-list-area {
-    background-color: lightblue;
-    border-radius: 5px 5px 10px;
-    box-shadow: black 5px 5px 10px;
-    /* background-image: url("https://geeksretreat.files.wordpress.com/2013/09/cork-board.png") no-repeat */
-    /* background-color: #045de9;
-    background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%); */
-
-}
 .task{
-    width: 160px;
-    height: 160px;
+    width: auto;
+    height: auto;
     box-shadow: 0 3px 6px rgba(0,0,0,.25);
     -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25);
     -moz-box-shadow: 0 3px 6px rgba(0,0,0,.25);
@@ -203,11 +194,15 @@ h1  {
     -webkit-transform: rotate(-3.5deg);
     -moz-transform: rotate(-3.5deg);
     background-color: #FFFF99;
+    font-family: 'Rock Salt', cursive;
+    
+
 }
 .task:hover{
-  width: 200px;
-  height: 200px;
+  width: auto;
+  height: auto;
   transform: rotate(3.5deg);
+  transform: scale(1.2);
   transition: width 0.5s, height 0.5s, transform 0.5s;
 }
 
@@ -215,11 +210,25 @@ html{
     scroll-behavior: smooth;
 }
 body {
-    /* background-color: whitesmoke; */
+
     background-color: #045de9;
     background-image: linear-gradient(400deg, #045de9 0%, #09c6f9 74%);
     height: 100%;
     margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+button{
+  border-radius: 2em;
+  background-color:#4eb5f1;
+  transition: all 0.2s;
+  text-align: center;
+  color: whitesmoke;
+  font-weight: 300;
+}
+button:hover{
+  background-color: whitesmoke;
+  color:#4eb5f1;
+  display: inline-block;
 }
