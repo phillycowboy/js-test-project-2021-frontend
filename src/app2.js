@@ -27,7 +27,11 @@ function init(){
 
 function eventListener() {
     userForm.addEventListener("submit", function(event){
+        event.preventDefault();
         signInUser(event)
+        // hideUserForm();
+        // displayTaskForm();
+        // displayToDos();
     });
     taskForm.addEventListener("submit", function(event){
         createTask(event)
@@ -55,7 +59,6 @@ function eventListener() {
             console.log("this is the home btn")
             event.preventDefault();
             displayUserForm();
-            // hideEditForm();
             hideTaskForm();
             hideToDos();
             userForm.reset();
@@ -112,8 +115,7 @@ function signInUser(event) {
     })
     hideUserForm();
     displayTaskForm();
-    // // displayToDos();
-    taskListArea.style.display = "block";
+    displayToDos();
 }
 
 function displayTaskForm() {
