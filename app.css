@@ -12,6 +12,46 @@ body {
     background-attachment: fixed;
 
 }
+.navbar{
+  width: 40px;
+  height: 100vh;
+  padding-right: 20px;
+  float: left;
+  background-color: black;
+  list-style: none;
+  padding-top: none;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: 1.5s;
+  z-index: 2;
+}
+.navbar:hover{
+  display: block;
+  width: 300px;
+  transition: 1.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: none;
+  z-index: 2;
+}
+.navbar ul li {
+  padding-left: 20px;
+}
+.navbar ul li .icon {
+  font-size: 30px;
+  position: relative;
+  display: flex;
+  margin-right: 10px;
+}
+.navbar ul li .title {
+  font-size: 30px;
+}
+.toggle-btn{
+  font-size: 24px;
+}
 
 h1  {
     text-align: center;
@@ -191,7 +231,7 @@ h1  {
 }
 #task-list-area{
   padding-top: 50px;
-  padding-left: 30px;
+  padding-left: 70px;
 }
 
 .task{
@@ -208,6 +248,8 @@ h1  {
     -moz-transform: rotate(-3.5deg);
     background-color: #FFFF99;
     font-family: 'Rock Salt', cursive;
+    /* position: absolute; */
+   
     
 
 }

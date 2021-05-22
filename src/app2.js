@@ -47,6 +47,7 @@ function eventListener() {
         event.preventDefault();
         updateTaskOnDom(event);
     });
+    
 
 
 }
