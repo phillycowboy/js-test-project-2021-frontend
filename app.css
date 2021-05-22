@@ -49,9 +49,12 @@ body {
 .navbar ul li .title {
   font-size: 30px;
 }
-.toggle-btn{
+/* .toggle-btn{
   font-size: 24px;
-}
+} */
+/* .navbar h1{
+  color: whitesmoke;
+} */
 
 h1  {
     text-align: center;

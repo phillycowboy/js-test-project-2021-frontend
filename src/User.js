@@ -14,5 +14,9 @@ class User{
         // debugger
         const hiddenId = document.querySelector("#user_id")
         hiddenId.value = this.id 
+
+        // if(this.tasks.indexOf(`${this.tasks}`) !== -1){
+        //     this.tasks.replace("")
+        // }
     }
 }

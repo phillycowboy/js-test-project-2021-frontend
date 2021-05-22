@@ -14,6 +14,10 @@ const taskForm = document.querySelector("#task-form");
 const taskListArea = document.querySelector("#task-list-area");
 const editTaskDiv = document.querySelector("#edit-task-div");
 const editTaskForm = document.querySelector(".edit-task-form");
+const homeBtn = document.querySelector(".home-btn");
+const aboutBtn = document.querySelector(".about-btn");
+const contactBtn = document.querySelector(".contact-btn");
+// const toggleBtn = document.querySelector(".toggle-btn");
 
 function init(){
     console.log("Dom has loaded");
@@ -47,12 +51,39 @@ function eventListener() {
         event.preventDefault();
         updateTaskOnDom(event);
     });
-    
+    homeBtn.addEventListener("click", function(event){
+            console.log("this is the home btn")
+            event.preventDefault();
+            displayUserForm();
+            // hideEditForm();
+            hideTaskForm();
+            hideToDos();
+            userForm.reset();
+    });
+    aboutBtn.addEventListener("click", function(event){
+            console.log("this is the about btn")
+
+    });
+    contactBtn.addEventListener("click", function(event){
+            console.log("this is the contact btn")
+
+    });
+    // toggleBtn.addEventListener("click", function(event){
+    //     event.preventDefault();
+    //     console.log("This is the toggle button")
+    //     if(navBar.className === "navbar" ){
+    //         navBar.className = "navbar:hover";
+    //     }else if(navBar.className === "navbar:hover"){
+    //         navBar.className = "navbar";
+    //     }
+    // })
+
 
 
 }
 
 function displayUserForm() {
+    logo.style.display = "block"
     welcomeMessage.style.display = "block";
     signInMessage.style.display = "block";
     userForm.style.display = "block";
@@ -81,6 +112,8 @@ function signInUser(event) {
     })
     hideUserForm();
     displayTaskForm();
+    // // displayToDos();
+    taskListArea.style.display = "block";
 }
 
 function displayTaskForm() {
@@ -97,6 +130,14 @@ function displayEditForm(){
 
 function hideEditForm(){
     editTaskDiv.style.display = "none";
+}
+
+function hideToDos(){
+    taskListArea.style.display = "none";
+}
+
+function displayToDos() {
+    taskListArea.style.display = "block";
 }
 
 function createTask(event) {
