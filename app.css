@@ -36,6 +36,7 @@ body {
   left: 0;
   padding-top: none;
   z-index: 2;
+  cursor: pointer;
 }
 .navbar ul li {
   padding-left: 20px;
@@ -278,6 +279,7 @@ button:hover{
   background-color: whitesmoke;
   color:#4eb5f1;
   display: inline-block;
+  cursor: pointer;
 }
 #take-back-div{
   text-align: center;
