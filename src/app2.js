@@ -16,7 +16,11 @@ const editTaskDiv = document.querySelector("#edit-task-div");
 const editTaskForm = document.querySelector(".edit-task-form");
 const homeBtn = document.querySelector(".home-btn");
 const aboutBtn = document.querySelector(".about-btn");
+const aboutDiv = document.querySelector("#about-div");
 const contactBtn = document.querySelector(".contact-btn");
+const contactDiv = document.querySelector("#contact-div");
+const returnDiv = document.querySelector("#take-back-div");
+const returnBtn = document.querySelector("#take-back-to-tasks");
 // const toggleBtn = document.querySelector(".toggle-btn");
 
 function init(){
@@ -56,19 +60,40 @@ function eventListener() {
         updateTaskOnDom(event);
     });
     homeBtn.addEventListener("click", function(event){
-            console.log("this is the home btn")
-            event.preventDefault();
-            displayUserForm();
-            hideTaskForm();
-            hideToDos();
-            userForm.reset();
+        console.log("this is the home btn")
+        event.preventDefault();
+        hideTaskForm();
+        hideToDos();
+        displayReturnPage();
+        hideAboutDiv();
+        hideContactDiv();
     });
     aboutBtn.addEventListener("click", function(event){
-            console.log("this is the about btn")
+        event.preventDefault();
+        console.log("this is the about btn")
+        displayAboutDiv();
+        hideTaskForm();
+        hideToDos();
+        hideContactDiv();
+        hideReturnPage();
+        hideUserForm();
 
     });
     contactBtn.addEventListener("click", function(event){
-            console.log("this is the contact btn")
+        event.preventDefault();
+        console.log("this is the contact btn")
+        displayContactDiv();
+        hideAboutDiv();
+        hideReturnPage();
+        hideUserForm();
+
+    });
+    returnBtn.addEventListener("click", function(event){
+        event.preventDefault();
+        console.log("This is the return button");
+        hideReturnPage();
+        displayTaskForm();
+        displayToDos();
 
     });
     // toggleBtn.addEventListener("click", function(event){
@@ -115,7 +140,6 @@ function signInUser(event) {
     })
     hideUserForm();
     displayTaskForm();
-    displayToDos();
 }
 
 function displayTaskForm() {
@@ -193,6 +217,35 @@ function removeTask(event) {
     api.deleteTask(id)
     event.target.parentNode.remove()
 }
+
+function displayReturnPage() {
+    logo.style.display = "block";
+    welcomeMessage.style.display = "block";
+    returnDiv.style.display = "block";
+}
+
+function hideReturnPage() {
+    logo.style.display = "none";
+    welcomeMessage.style.display = "none";
+    returnDiv.style.display = "none";
+}
+
+function displayAboutDiv() {
+    aboutDiv.style.display = "block"
+}
+
+function hideAboutDiv() {
+    aboutDiv.style.display = "none"
+}
+
+function displayContactDiv() {
+    contactDiv.style.display = "block"
+}
+
+function hideContactDiv() {
+    contactDiv.style.display = "none"
+}
+
 
 
 
