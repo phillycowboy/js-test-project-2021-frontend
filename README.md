@@ -1,0 +1,11 @@
+Hello and Welcome to Tasker an iteractive to-do list to make your life easier. Tasker was built with an Rails API backend and 
+an Object Oriented JavaScript frontend. For page design and layout we used HTML, CSS, FontAwesome, and Google Fonts. To get started follow the link the backend repository https://github.com/phillycowboy/js-test-project-2021. Next, in your terminal type git clone, on the repository page look for the green button that says "Code" and click on it. Once the dropdown menu appears copy the SSH key and paste into your terminal next to ```git clone``` and hit enter. Once you have cloned the repository type ```cd``` in your terminal followed by 
+```js-test-project-2021``` and hit enter. Once your file path ends with the repository name type ```rails s``` to start your server.
+To interact with this app, go to your file tree and click on the index.html file. Once you are in there right click and click the ```Open in default browser``` or while your in the front end repository type ```explorer.exe index.html``` for Windows users. And 
+```open index.html``` for Mac users. NOTE: you have to be running the ```rails s``` server in a differnt window and for the app to 
+function has to be running at all times. Once you are done navigate over to your backend terminal and type ```ctrl + c``` to kill your server. 
+
+To use the app: Simply open the index.html page in your browser, there you will be greeted with a signin form. From there type your name and email, and hit enter or click submit. You should be seeing the Create Task form. What do you need to get done today???????
+Type in as many to dos as you need. If you choose you need to edit, or delete them, no problem! Click on either button and change your task, or eliminate it completely. Once you've completed a task but do not want to get rid of it, hit the completed button to cross out the task at hand. 
+
+Did you hit the home button by accident? No problem as long as you are logged in you may hit the Return to Tasks button at the bottom of the page to go back to your tasks. If you accidently navigate away from the page, no biggie! Log back in and your tasks will be waiting for you, cause thats the thing about tasks, they will always be there until they're done. 
