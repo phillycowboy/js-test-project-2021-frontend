@@ -67,6 +67,7 @@ function eventListener() {
         displayReturnPage();
         hideAboutDiv();
         hideContactDiv();
+        // init();
     });
     aboutBtn.addEventListener("click", function(event){
         event.preventDefault();
@@ -86,6 +87,8 @@ function eventListener() {
         hideAboutDiv();
         hideReturnPage();
         hideUserForm();
+        hideTaskForm();
+        hideToDos();
 
     });
     returnBtn.addEventListener("click", function(event){
