@@ -21,6 +21,8 @@ const contactBtn = document.querySelector(".contact-btn");
 const contactDiv = document.querySelector("#contact-div");
 const returnDiv = document.querySelector("#take-back-div");
 const returnBtn = document.querySelector("#take-back-to-tasks");
+const hiddenId = document.querySelector("#user_id")
+
 // const toggleBtn = document.querySelector(".toggle-btn");
 
 function init(){
@@ -62,12 +64,28 @@ function eventListener() {
     homeBtn.addEventListener("click", function(event){
         console.log("this is the home btn")
         event.preventDefault();
-        hideTaskForm();
-        hideToDos();
-        displayReturnPage();
+        // if(hiddenId.value === ""){
+        //     homeBtn.disabled = false
+        //     hideReturnPage();
+        //     console.log("button is disabled")
+        // }else{
+        //     homeBtn.disabled = true
+        // }
+        // hideTaskForm();
+        // hideToDos();
+        // displayReturnPage();
+        // hideAboutDiv();
+        // hideContactDiv();
+        // hideTaskForm();
+        // hideToDos();
+        hideReturnPage();
         hideAboutDiv();
         hideContactDiv();
-        // init();
+        if(hiddenId.value){
+            displayReturnPage();
+            hideTaskForm();
+            hideToDos();
+        }
     });
     aboutBtn.addEventListener("click", function(event){
         event.preventDefault();
@@ -137,10 +155,13 @@ function signInUser(event) {
     api.createNewUser(user)
     .then(response => {
         let currentUser = new User(response)
-        const hiddenId = document.querySelector("#user_id")
-        hiddenId.value = currentUser.id 
+        // const hiddenId = document.querySelector("#user_id")
+        // hiddenId.value = currentUser.id 
         console.log(response);
     })
+    if(hiddenId.value){
+        displayToDos();
+    }
     hideUserForm();
     displayTaskForm();
 }
