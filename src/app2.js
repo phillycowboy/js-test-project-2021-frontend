@@ -21,7 +21,8 @@ const contactBtn = document.querySelector(".contact-btn");
 const contactDiv = document.querySelector("#contact-div");
 const returnDiv = document.querySelector("#take-back-div");
 const returnBtn = document.querySelector("#take-back-to-tasks");
-const hiddenId = document.querySelector("#user_id")
+const hiddenId = document.querySelector("#user_id");
+const searchBar = document.querySelector("#search-bar");
 
 // const toggleBtn = document.querySelector(".toggle-btn");
 
@@ -117,6 +118,10 @@ function eventListener() {
         displayToDos();
 
     });
+    searchBar.addEventListener("keyup", function(e){
+        // console.log(e.target.value)
+        filterTasks(e)
+    })
     // toggleBtn.addEventListener("click", function(event){
     //     event.preventDefault();
     //     console.log("This is the toggle button")
@@ -268,6 +273,27 @@ function displayContactDiv() {
 
 function hideContactDiv() {
     contactDiv.style.display = "none"
+}
+
+function filterTasks(e){
+    e.preventDefault();
+    console.log(e.target.value)
+    console.log(Task.all)
+    let tasks = Task.all 
+    let filteredTasks = tasks.filter( task => {
+        // debugger
+        // if(e.target.value.toLowerCase().matches(task.activity)){
+        //     return task.activity
+        // }
+        return task.activity.toLowerCase().startsWith(e.target.value.toLowerCase())
+        // return e.target.value.toLowerCase() === task.activity.toLowerCase()
+    });
+    console.log(filteredTasks);
+    taskListArea.innerHTML = ""
+    filteredTasks.forEach(t => {
+       console.log(t)
+        t.addTask()
+    })
 }
 
 

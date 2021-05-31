@@ -1,10 +1,12 @@
 class Task{
 
+    static all = []
     constructor(task){
         this.id = task.id
         this.activity = task.activity
         this.user_id = task.user_id
         this.addTask()
+        Task.all.push(this)
     }
 
     addTask(){
