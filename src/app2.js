@@ -23,6 +23,7 @@ const returnDiv = document.querySelector("#take-back-div");
 const returnBtn = document.querySelector("#take-back-to-tasks");
 const hiddenId = document.querySelector("#user_id");
 const searchBar = document.querySelector("#search-bar");
+const searchBarDiv = document.querySelector(".search-bar");
 
 // const toggleBtn = document.querySelector(".toggle-btn");
 
@@ -30,6 +31,7 @@ function init(){
     console.log("Dom has loaded");
     eventListener();
     displayUserForm();
+    hideSearchBar();
 }
 
 function eventListener() {
@@ -86,6 +88,7 @@ function eventListener() {
             displayReturnPage();
             hideTaskForm();
             hideToDos();
+            hideSearchBar();
         }
     });
     aboutBtn.addEventListener("click", function(event){
@@ -97,6 +100,7 @@ function eventListener() {
         hideContactDiv();
         hideReturnPage();
         hideUserForm();
+        hideSearchBar();
 
     });
     contactBtn.addEventListener("click", function(event){
@@ -108,6 +112,7 @@ function eventListener() {
         hideUserForm();
         hideTaskForm();
         hideToDos();
+        hideSearchBar();
 
     });
     returnBtn.addEventListener("click", function(event){
@@ -116,6 +121,7 @@ function eventListener() {
         hideReturnPage();
         displayTaskForm();
         displayToDos();
+        displaySearchBar();
 
     });
     searchBar.addEventListener("keyup", function(e){
@@ -169,6 +175,7 @@ function signInUser(event) {
     }
     hideUserForm();
     displayTaskForm();
+    displaySearchBar();
 }
 
 function displayTaskForm() {
@@ -273,6 +280,14 @@ function displayContactDiv() {
 
 function hideContactDiv() {
     contactDiv.style.display = "none"
+}
+
+function displaySearchBar(){
+    searchBarDiv.style.display = "block";
+}
+
+function hideSearchBar(){
+    searchBarDiv.style.display = "none";
 }
 
 function filterTasks(e){
