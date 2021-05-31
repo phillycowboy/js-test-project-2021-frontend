@@ -281,17 +281,10 @@ function filterTasks(e){
     console.log(Task.all)
     let tasks = Task.all 
     let filteredTasks = tasks.filter( task => {
-        // debugger
-        // if(e.target.value.toLowerCase().matches(task.activity)){
-        //     return task.activity
-        // }
         return task.activity.toLowerCase().startsWith(e.target.value.toLowerCase())
-        // return e.target.value.toLowerCase() === task.activity.toLowerCase()
     });
-    console.log(filteredTasks);
     taskListArea.innerHTML = ""
     filteredTasks.forEach(t => {
-       console.log(t)
         t.addTask()
     })
 }
